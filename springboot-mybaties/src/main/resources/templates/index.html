@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thymeleaf</title>
+</head>
+<body>
+
+<!--姓名:<span th:text="${user.username}">姓名</span><br/>
+密码:<span th:text="${user.password}">密码</span><br/>
+ID:<span th:text="${user.id}">id</span><br/>
+<hr>
+<span th:if="${user.id > 33}">老腊肉</span>
+<span th:if="${user.id <= 18}">小鲜肉</span>
+<hr>
+<span th:unless="${user.age>101}" th:text="未超过18岁"></span>
+<span th:unless="${user.age>160}" th:text="未满160岁"></span>
+<hr>
+<span th:text="${user.age<1?'哈哈':'呵呵'}"></span>-->
+<table>
+    <tr>
+        <td>id</td>
+        <td>姓名</td>
+        <td>密码</td>
+        <td>年龄</td>
+        <td>生成时间</td>
+    </tr>
+    <tr th:each="user:${users}">
+        <td th:text="${user.id}">id</td>
+        <td th:text="${user.username}">姓名</td>
+        <td th:text="${user.password}">密码</td>
+        <td th:text="${user.age}">年龄</td>
+        <!-- <input th:value="${#dates.format(now,'yyyy-MM-dd HH:mm:ss')}"/> -->
+        <td><input th:value="${#dates.format(user.entryDate,'yyyy-MM-dd')}"></input>
+    </tr>
+</table>
+
+</body>
+</html>

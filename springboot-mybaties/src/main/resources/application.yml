@@ -1,0 +1,13 @@
+# 连接数据库必备的数据源
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/java_1904?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    # 开发设置不要缓存，设置为false
+  thymeleaf:
+    cache: false
+# mapper接口和mapper映射文件
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
